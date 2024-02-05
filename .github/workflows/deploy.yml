@@ -1,0 +1,21 @@
+name: Deploy on Push
+
+on:
+  push:
+    branches:
+      - main  # Adjust the branch name as needed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Install sshpass
+      run: sudo apt-get install -y sshpass
+
+    - name: SSH into Server and Pull Code
+      run: |
+        sshpass -p 'uYNn]G2~Z$=3'cU' ssh root@68.183.144.192 'touch test1.txt'
