@@ -22,6 +22,6 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USER }}
         key: ${{ secrets.KEY }}
-        password: ${{ secrets.PASS }}
+        passphrase: ${{ secrets.PASS }}
         port: 22
         script: whoami
