@@ -16,8 +16,8 @@ jobs:
     - name: executing remote ssh commands using password
       uses: appleboy/ssh-action@v1.0.3
       with:
-        host: ${{ env.HOST }}
-        username: ${{ env.USER }}
-        key: ${{ env.KEY }}
-        passphrase: ${{ env.PASS }}
+        host: ${{ env.ssh.HOST }}
+        username: ${{ env.ssh.USER }}
+        key: ${{ env.ssh.KEY }}
+        passphrase: ${{ env.ssh.PASS }}
   
