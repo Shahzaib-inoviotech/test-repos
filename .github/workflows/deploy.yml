@@ -9,6 +9,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
+    env:
+      SSH: ${{ secrets.SSH }}
+
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
@@ -18,6 +21,6 @@ jobs:
       with:
         host: ${{ env.SSH_HOST }}
         username: ${{ env.SSH_USER }}
-        key: ${{ env.SSH_KEY }}
-        passphrase: ${{ env.SSH_PASS }}
-  
+        password: ${{ env.SSH_PASS }}
+        port: ${{ env.SSH_PORT }}
+        script: whoami
