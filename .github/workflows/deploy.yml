@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: ssh
 ##    env:
-#      SSH: ${{ env.ssh }}
+#      SSH: ${{ env.SSH }}
 
     steps:
     - name: Checkout Repository
@@ -19,7 +19,7 @@ jobs:
     - name: executing remote ssh commands using password
       uses: appleboy/ssh-action@v1.0.3
       with:
-        host: ${{ secrets.HOST }}
+        host: ${{ env.HOST }}
         username: ${{ env.ssh_USER }}
         key: ${{ env.ssh_KEY }}
         password: ${{ env.ssh_PASS }}
