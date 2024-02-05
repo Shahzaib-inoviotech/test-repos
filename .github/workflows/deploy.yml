@@ -20,8 +20,8 @@ jobs:
       uses: appleboy/ssh-action@v1.0.3
       with:
         host: ${{ secrets.HOST }}
-        username: ${{ env.ssh_USER }}
-        key: ${{ env.ssh_KEY }}
-        password: ${{ env.ssh_PASS }}
+        username: ${{ secrets.USER }}
+        key: ${{ secrets.KEY }}
+        password: ${{ secrets.PASS }}
         port: 22
         script: whoami
