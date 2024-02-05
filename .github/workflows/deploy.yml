@@ -9,7 +9,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     environment: ssh
-#    env:
+##    env:
 #      SSH: ${{ env.ssh }}
 
     steps:
