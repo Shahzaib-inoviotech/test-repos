@@ -22,5 +22,5 @@ jobs:
         host: ${{ env.SSH_HOST }}
         username: ${{ env.SSH_USER }}
         password: ${{ env.SSH_PASS }}
-        port: ${{ env.SSH_PORT }}
+        port: 22
         script: whoami
