@@ -8,7 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: ssh
+    environment: SSH
 #    env:
 #      SSH: ${{ env.SSH }}
 
