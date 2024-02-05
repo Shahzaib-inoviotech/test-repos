@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      SSH: ${{ secrets.SSH }}
+      SSH: ${{ env.ssh }}
 
     steps:
     - name: Checkout Repository
