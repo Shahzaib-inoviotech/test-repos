@@ -13,9 +13,11 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
-    - name: Install sshpass
-      run: sudo apt-get install -y sshpass
-
-    - name: SSH into Server and Pull Code
-      run: |
-        sshpass -p 'uYNn]G2~Z$=3'cU' ssh root@68.183.144.192 'touch test1.txt'
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USER }}
+        password: ${{ secrets.PASS }}
+        port: ${{ secrets.PORT }}
+        script: whoami
