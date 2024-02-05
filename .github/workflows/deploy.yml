@@ -8,9 +8,9 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
-    env:
-      SSH: ${{ env.ssh }}
+    environment: ssh
+#    env:
+#      SSH: ${{ env.ssh }}
 
     steps:
     - name: Checkout Repository
