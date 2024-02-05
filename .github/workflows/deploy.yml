@@ -8,7 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: SSH
+    environment: secrets
 #    env:
 #      SSH: ${{ env.SSH }}
 
@@ -19,7 +19,7 @@ jobs:
     - name: executing remote ssh commands using password
       uses: appleboy/ssh-action@v1.0.3
       with:
-        host: ${{ env.SSH_HOST }}
+        host: ${{ secrets.HOST }}
         username: ${{ env.ssh_USER }}
         key: ${{ env.ssh_KEY }}
         password: ${{ env.ssh_PASS }}
