@@ -8,13 +8,20 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: secrets
-#    env:
-#      SSH: ${{ env.SSH }}
 
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
+      with:
+        fetch-depth: 0  # Ensure the entire history is fetched, required for private repositories
+
+    - name: Set up Git
+      run: |
+        git config --global user.email "actions@github.com"
+        git config --global user.name "GitHub Actions"
+    - name: Authenticate with GitHub
+      run: |
+        git config --global credential.helper '!f() { sleep 1; echo "username=${{ secrets.GIT_USER }}"; echo "password=${{ secrets.GIT_PASS }}"; }; f'
 
     - name: executing remote ssh commands using password
       uses: appleboy/ssh-action@v1.0.3
@@ -24,4 +31,6 @@ jobs:
         key: ${{ secrets.KEY }}
         passphrase: ${{ secrets.PASS }}
         port: 22
-        script: whoami
+        script: |
+          whoami
+
